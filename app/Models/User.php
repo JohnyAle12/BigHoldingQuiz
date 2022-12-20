@@ -20,4 +20,14 @@ class User extends AbstractModel
     {
         return $this->getAttribute('id');
     }
+
+    public function getProperties(): array
+    {
+        return [
+            'mobile_number' => $this->getAttribute('mobile_number'),
+            'birth_date' => $this->getAttribute('birth_date'),
+            'created_at' => $this->getAttribute('created_at'),
+            'updated_at' => $this->getAttribute('updated_at'),
+        ];
+    }
 }

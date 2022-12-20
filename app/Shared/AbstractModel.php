@@ -17,14 +17,9 @@ abstract class AbstractModel implements JsonSerializable
         $this->attributes = $this->getResolver()->resolve($parameters);
     }
 
-    public function toArray(): array
-    {
-        return $this->attributes;
-    }
-
     public function jsonSerialize(): array
     {
-        return $this->toArray();
+        return $this->attributes;
     }
 
     protected function getAttribute(string $key)
