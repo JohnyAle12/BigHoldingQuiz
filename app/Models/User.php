@@ -10,6 +10,8 @@ class User extends AbstractModel
 {
     protected array $options = [
         'id' => 'integer',
+        'user_id' => 'integer',
+        'identification_number' => 'integer',
         'mobile_number' => ['string', 'null'],
         'birth_date' => ['date', 'null'],
         'created_at' => 'datetime',
