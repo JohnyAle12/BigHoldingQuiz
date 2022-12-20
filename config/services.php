@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'conectados_web' => [
+        'uri' => env('CONECTADOS_WEB_API'),
+        'token' => env('CONECTADOS_WEB_TOKEN')
+    ],
+
 ];
