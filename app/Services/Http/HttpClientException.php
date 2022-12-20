@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceClients;
+namespace App\Services\Http;
 
 use Symfony\Component\HttpFoundation\Response as HttpResponse;
 use Symfony\Component\HttpKernel\Exception\HttpException;
