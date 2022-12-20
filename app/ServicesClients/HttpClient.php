@@ -9,7 +9,6 @@ use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response as HttpResponse;
 use App\ServiceClients\HttpClientException;
-use Throwable;
 
 class HttpClient implements HttpInterface
 {
@@ -36,7 +35,7 @@ class HttpClient implements HttpInterface
             );
 
             return $parsedContent;
-        } catch (Throwable $exception) {
+        } catch (BadResponseException $exception) {
             $this->requestLogging(
                 'error',
                 sprintf('%s Unexpected Http request errors in %s for api %s', get_class($this), $method, $uri)
