@@ -11,7 +11,10 @@ interface UserInterface
 {
     public function getUser(int $userId): User;
 
-    public function getAllUsers(int $limit, int $perPage, string $ordering = 'desc'): Collection;
+    public function getAllUsers(
+        int $page,
+        int $perPage
+    ): Collection;
 
 }
 

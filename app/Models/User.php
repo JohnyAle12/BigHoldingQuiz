@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Shared\AbstractModel;
+use Illuminate\Support\Facades\Date;
 
 class User extends AbstractModel
 {
@@ -23,11 +24,29 @@ class User extends AbstractModel
         return $this->getAttribute('id');
     }
 
-    public function getProperties(): array
+    public function getUserId(): int
+    {
+        return $this->getAttribute('user_id');
+    }
+
+    public function getIdentification(): int
+    {
+        return $this->getAttribute('identification_number');
+    }
+
+    public function getMobileNumber(): Date
+    {
+        return $this->getAttribute('mobile_number');
+    }
+
+    public function getBirthDate(): Date
+    {
+        return $this->getAttribute('birth_date');
+    }
+
+    public function getTimeStamps(): array
     {
         return [
-            'mobile_number' => $this->getAttribute('mobile_number'),
-            'birth_date' => $this->getAttribute('birth_date'),
             'created_at' => $this->getAttribute('created_at'),
             'updated_at' => $this->getAttribute('updated_at'),
         ];
