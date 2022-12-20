@@ -1,44 +1,54 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use App\Shared\AbstractModel;
+use Illuminate\Support\Facades\Date;
 
-class User extends Authenticatable
+class User extends AbstractModel
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected array $options = [
+        'id' => 'integer',
+        'user_id' => 'integer',
+        'identification_number' => 'integer',
+        'mobile_number' => ['string', 'null'],
+        'birth_date' => ['date', 'null'],
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public function getId(): int
+    {
+        return $this->getAttribute('id');
+    }
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function getUserId(): int
+    {
+        return $this->getAttribute('user_id');
+    }
+
+    public function getIdentification(): int
+    {
+        return $this->getAttribute('identification_number');
+    }
+
+    public function getMobileNumber(): Date
+    {
+        return $this->getAttribute('mobile_number');
+    }
+
+    public function getBirthDate(): Date
+    {
+        return $this->getAttribute('birth_date');
+    }
+
+    public function getTimeStamps(): array
+    {
+        return [
+            'created_at' => $this->getAttribute('created_at'),
+            'updated_at' => $this->getAttribute('updated_at'),
+        ];
+    }
 }

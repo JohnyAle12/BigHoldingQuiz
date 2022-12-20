@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceClients;
+namespace App\Services\Http;
 
 interface HttpInterface
 {

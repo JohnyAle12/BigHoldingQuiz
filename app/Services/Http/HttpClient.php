@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceClients;
+namespace App\Services\Http;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response as HttpResponse;
-use App\ServiceClients\HttpClientException;
+use App\Services\Http\HttpClientException;
 
 class HttpClient implements HttpInterface
 {
