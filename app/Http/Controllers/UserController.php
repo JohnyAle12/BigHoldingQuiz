@@ -18,8 +18,8 @@ class UserController extends Controller
     public function index(Request $request): View
     {
         $page = $request->page ?? 1;
-        $perPage = $request->perPage ?? 10;
-        $users = $this->userService->getAllUsers($page, $perPage);
-        return view('users', compact('users'));
+        [$users, $pagination] = $this->userService->getAllUsers((int)$page);
+
+        return view('users', compact('users', 'pagination'));
     }
 }

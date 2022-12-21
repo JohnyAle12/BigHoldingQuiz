@@ -29,17 +29,17 @@ class User extends AbstractModel
         return $this->getAttribute('user_id');
     }
 
-    public function getIdentification(): int
+    public function getIdentification(): string
     {
         return $this->getAttribute('identification_number');
     }
 
-    public function getMobileNumber(): Date
+    public function getMobileNumber(): string
     {
         return $this->getAttribute('mobile_number');
     }
 
-    public function getBirthDate(): Date
+    public function getBirthDate(): ?string
     {
         return $this->getAttribute('birth_date');
     }
