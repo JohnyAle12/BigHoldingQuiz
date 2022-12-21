@@ -2,17 +2,9 @@
 
 @section('content')
     <div class="col">
-        <h2>Usuarios</h2>
+        <h2>Users</h2>
         <hr/>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('layouts.alerts')
         <form action="{{ route('users.show') }}" method="GET" class="row g-3">
             <div class="col-auto">
               <input type="number" class="form-control" name="userId" placeholder="User Id" required>

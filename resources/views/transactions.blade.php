@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="col">
-        <h2>Transacciones</h2>
+        <h2>Transactions</h2>
         <hr/>
 
         @include('layouts.transaction-table')
