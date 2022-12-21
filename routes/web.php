@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [UserController::class, 'users'])->name('users.index');
+Route::get('user-show', [UserController::class, 'user'])->name('users.show');
 Route::get('transactions/{userId}', [UserController::class, 'transactions'])->name('users.transactions');

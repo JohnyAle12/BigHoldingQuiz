@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 
 interface UserInterface
 {
-    public function getUser(int $userId): User;
+    public function getUser(int $userId): ?User;
 
     public function getAllUsers(
         int $page,

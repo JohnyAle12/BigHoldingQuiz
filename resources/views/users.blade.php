@@ -1,9 +1,18 @@
-@extends('layout')
+@extends('layouts.main')
 
 @section('content')
     <div class="col">
-        <h2>Usuarios</h2>
+        <h2>Users</h2>
         <hr/>
+        @include('layouts.alerts')
+        <form action="{{ route('users.show') }}" method="GET" class="row g-3">
+            <div class="col-auto">
+              <input type="number" class="form-control" name="userId" placeholder="User Id" required>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Find user</button>
+            </div>
+        </form>
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -23,7 +32,7 @@
                         <td>{{ $user->getIdentification() }}</td>
                         <td>{{ $user->getMobileNumber() }}</td>
                         <td>{{ $user->getBirthDate() }}</td>
-                        <td><a href="{{ route('users.transactions', $user->getId()) }}" class="btn btn-sm btn-success">Show transactions</a></td>
+                        <td><a href="{{ route('users.transactions', $user->getUserId()) }}" class="btn btn-sm btn-success">Show transactions</a></td>
                     </tr>
                 @endforeach
             </tbody>
