@@ -19,9 +19,14 @@ class UserService implements UserInterface
         $this->persistUserRecords();
     }
 
-    public function getUser(int $userId): User
+    public function getUser(int $userId): ?User
     {
-        $user = Cache::get('users')->where('id', $userId)->first();
+        $user = Cache::get('users')->where('user_id', $userId)->first();
+
+        if(!$user){
+            return null;
+        }
+
         return $this->newUser($user);
     }
 
