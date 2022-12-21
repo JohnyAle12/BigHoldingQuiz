@@ -22,6 +22,13 @@ For generate the new application key
 $ php artisan key:generate
 ```
 
+You nedd two environment variables
+
+```bash
+CONECTADOS_WEB_API="https://test.conectadosweb.com.co/"
+CONECTADOS_WEB_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJ0ZXN0IjozMjE0MTIsInVzZXIiOiJmM3IyIn0NcPLPRLSvfszQwtxZLyypsm3Y56ELRdppqYXDv2Hagk"
+```
+
 After that you can start the application in local with:
 
 ```bash

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Shared\AbstractModel;
-use Illuminate\Support\Facades\Date;
 
 class User extends AbstractModel
 {
