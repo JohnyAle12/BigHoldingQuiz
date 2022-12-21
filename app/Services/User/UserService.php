@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Cache;
 
 class UserService implements UserInterface
 {
+    private const PER_PAGE = 10;
+
     public function __construct(
         protected HttpClient $httpClient,
     ) {
@@ -25,13 +27,33 @@ class UserService implements UserInterface
 
     public function getAllUsers(
         int $page = 1,
-        int $perPage = 10
-    ): Collection {
+        int $perPage = self::PER_PAGE
+    ): array {
         $users = Cache::get('users')
-            ->sortByDesc('created_at')
-            ->forPage($page, $perPage);
+            ->sortByDesc('created_at');
 
-        return $users->map(fn($user) => $this->newUser($user));
+        return [
+            $users->forPage($page, $perPage)->map(fn($user) => $this->newUser($user)),
+            $this->getPagination($users, $page, $perPage)
+        ];
+    }
+
+    private function getPagination(
+        Collection $collection,
+        int $currentPage,
+        int $perPage
+    ): array
+    {
+        $previousPage = $currentPage - 1;
+        $nextPage = $currentPage + 1;
+        $pages = (int) floor($collection->count() / $perPage);
+
+        return [
+            'currentPage' => $currentPage,
+            'pages' => $pages,
+            'previousPage' => $previousPage === 0 ? 1 : $previousPage,
+            'nextPage' => $nextPage
+        ];
     }
 
     private function newUser(array $user): User

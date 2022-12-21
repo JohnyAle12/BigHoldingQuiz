@@ -14,7 +14,7 @@ interface UserInterface
     public function getAllUsers(
         int $page,
         int $perPage
-    ): Collection;
+    ): array;
 
 }
 

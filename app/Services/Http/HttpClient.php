@@ -26,12 +26,7 @@ class HttpClient implements HttpInterface
 
             $this->requestLogging(
                 'info',
-                sprintf('%s request response %s for api %s', get_class($this), $method, $uri),
-                [
-                    'request' => $options['json'] ?? [],
-                    'response' => $parsedContent,
-                    'options' => $options,
-                ]
+                sprintf('%s request response %s for api %s', get_class($this), $method, $uri)
             );
 
             return $parsedContent;

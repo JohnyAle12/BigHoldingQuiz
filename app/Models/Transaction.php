@@ -5,16 +5,14 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Shared\AbstractModel;
-use Illuminate\Support\Facades\Date;
 
-class User extends AbstractModel
+class Transaction extends AbstractModel
 {
     protected array $options = [
         'id' => 'integer',
-        'user_id' => 'integer',
-        'identification_number' => 'integer',
-        'mobile_number' => ['string', 'null'],
-        'birth_date' => ['date', 'null'],
+        'client_id' => 'integer',
+        'amount' => 'string',
+        'transaction_detail' => ['string', 'null'],
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
@@ -26,22 +24,17 @@ class User extends AbstractModel
 
     public function getUserId(): int
     {
-        return $this->getAttribute('user_id');
+        return $this->getAttribute('client_id');
     }
 
-    public function getIdentification(): string
+    public function getAmount(): string
     {
-        return $this->getAttribute('identification_number');
+        return $this->getAttribute('amount');
     }
 
-    public function getMobileNumber(): string
+    public function getDetail(): string
     {
-        return $this->getAttribute('mobile_number');
-    }
-
-    public function getBirthDate(): ?string
-    {
-        return $this->getAttribute('birth_date');
+        return $this->getAttribute('transaction_detail');
     }
 
     public function getTimeStamps(): array
