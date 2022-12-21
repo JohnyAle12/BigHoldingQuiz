@@ -23,7 +23,7 @@
                         <td>{{ $user->getIdentification() }}</td>
                         <td>{{ $user->getMobileNumber() }}</td>
                         <td>{{ $user->getBirthDate() }}</td>
-                        <td></td>
+                        <td><a href="{{ route('users.transactions', $user->getId()) }}" class="btn btn-sm btn-success">Show transactions</a></td>
                     </tr>
                 @endforeach
             </tbody>
