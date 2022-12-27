@@ -2,7 +2,7 @@
 
 ## About Project
 
-This is a web application where i put some knowledges about laravel framework, here i build a basic api services to list users and them repositories using dependency injection, interfaces, cache, clean code and result paginated.
+This is a web application where i put some knowledges about laravel framework, here i build a basic api service to list users and them repositories using dependency injection, interfaces, cache, clean code and result paginated.
 
 ## Start Project
 
@@ -22,7 +22,7 @@ For generate the new application key
 $ php artisan key:generate
 ```
 
-You nedd two environment variables
+You need two environment variables
 
 ```bash
 CONECTADOS_WEB_API="https://test.conectadosweb.com.co/"
